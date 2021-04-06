@@ -1,0 +1,23 @@
+{% extends 'home.html' %}
+{% block boton_nuevo %}
+    <div class="pd-20">
+        <a href="{{ create_url}}" class="btn btn-primary btnTest"><i class="fas fa-plus" ></i> Nuevo Registro</a>
+	</div>
+{% endblock  %}
+
+ 
+{% block content %}
+<div class="pb-20">
+     <table id="data" class="data-table table stripe hover nowrap">
+        <thead>
+            {% block columnas %}
+            {% endblock %}
+        </thead>
+
+        <tbody>
+            {% block filas %}
+            {% endblock %} 
+          </tbody>
+    </table>  
+</div>
+{% endblock %}

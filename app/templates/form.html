@@ -1,0 +1,39 @@
+{% extends 'home.html' %}
+{% load widget_tweaks %}
+
+{% block formulario %}
+ 	<form method="POST" action="." >
+    {% csrf_token %}
+    <input type="hidden" name="action" value="{{action}}">
+    
+    <div id="error_message" class="alert alert-danger" role="alert" style="display: none">
+    </div>
+
+  
+    
+    {% for field in form.visible_fields %}
+        <div class="form-group">
+			<label>{{field.label}}</label>
+            {{field}} 
+		</div>
+    {% endfor %}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{{list_url_clientes}}" class="btn btn-secondary">Cancelar</a>							
+    </form>	
+    
+   
+{% endblock %}
+
+{% block code_js %}
+ 
+    <script type="application/javascript">
+        $('form').on('submit', function (e){
+            e.preventDefault();
+             var parameters = $(this).serializeArray();
+             submit_con_ajax(window.location.pathname, parameters,function(){
+                location.href = '{{list_url_clientes}}';
+            });
+             
+        });
+    </script>
+{% endblock code_js %}

@@ -1,0 +1,40 @@
+{% extends 'delete.html' %}
+
+{% block formulario %}
+ 	<form method="post" action=".">
+    {% csrf_token %}
+        <input type="hidden" name="action" value="{{action}}">
+        <div id="error_message" class="alert alert-danger" role="alert" >
+             ¿Esta seguro de eliminar el registro Nro. {{object.id}}?
+  	    </div>
+    
+        <button type="submit" class="btn btn-primary">Si, confirmar</button>			
+        <a href="{{list_url_clientes}}" class="btn btn-secondary">Cancelar</a>							
+    </form>	
+{% endblock %}
+
+{% block code_js %}
+    <script>
+        $('form').on('submit', function (e){
+            e.preventDefault();
+            var parameters = $(this).serializeArray();
+ 
+             $.ajax({
+                url: window.location.pathname,
+                type: 'POST',
+                data: parameters,
+                dataType: 'json'
+            }).done(function(data){
+                if(!data.hasOwnProperty('error')){
+                    location.href = '{{list_url_clientes}}';
+                    return false;
+                }
+                message_error(data.error);
+            }).fail(function(data){
+                
+            }).always(function(data){
+                
+            });
+        });
+    </script>
+{% endblock code_js %}

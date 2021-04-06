@@ -1,0 +1,40 @@
+{% extends 'list.html' %}
+{% load static %}
+
+{% block head_js %}
+<script src="{% static 'clientes/js/list.js' %}"></script>
+
+{% endblock %}
+
+{% block columnas %}
+<th>Código</th>
+<th>Nombre Cliente</th>
+<th style="text-align: center;">Nro. Documento</th>
+<th style="text-align: center;">Nro. Celular</th>
+<th style="text-align: center;">Dirección Domicilio</th>
+<th style="text-align: center;">Acción</th>
+{% endblock %}
+
+
+{% block filas %}
+    <!-- Contenido de la pagina 
+
+    {% for c in object_list %}
+    <tr> 
+        <td data-label="Código:">{{c.id}}</td>
+        <td data-label="Nombre Cliente:">{{c.nombres}}</td>
+        <td data-label="Nro. Documento:" style="text-align: center;">{{c.nro_documento}}</td>
+        <td data-label="Nro. Celular:" style="text-align: center;" >{{c.nro_telefono}}</td>
+        <td data-label="Dirección:" style="text-align: center;">{{c.direccion}}</td>
+        <td data-label="Acción:" style="text-align: center;">
+            <a href="{% url 'erp:clientes_update' c.id %}"><i class="fas fa-user-edit"></i>Editar</a>
+            <a href="{% url 'erp:clientes_delete' c.id %}"><i class="fas fa-trash-alt"></i>Eliminar</a>
+        </td>
+     </tr>
+    {% endfor %}
+    -->
+{% endblock %}
+
+ 
+
+ 

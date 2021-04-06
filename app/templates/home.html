@@ -1,0 +1,95 @@
+ 
+{% load static %}
+ <!DOCTYPE html>
+<html>
+<head>
+	<!-- Basic Page Info -->
+<meta charset="utf-8">
+<title>Sistema de Prestamos</title>
+
+<!-- Site favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- CSS -->
+<link rel="stylesheet"  href="{% static 'css/core.css' %}">
+<link rel="stylesheet"  href="{% static 'css/icon-font.min.css' %}">
+<link rel="stylesheet"  href="{% static 'css/style.css' %}">
+<link rel="stylesheet"  href="{% static 'css/all.min.css' %}">
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<link rel="stylesheet"  href="{% static 'js/jquery-confirm-v3.3.4/jquery-confirm.min.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/datatable/css/dataTables.bootstrap4.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/datatable/css/responsive.bootstrap4.min.css' %}">
+
+ {% block head_js %}
+{% endblock %}
+</head>
+
+<body>
+	<!-- Boton Hamburguesa -->
+	<div class="header">
+		<div class="header-left">
+			<div class="menu-icon fa fa-bars"></div>
+			<h3 class="text-blue" style="padding-left: 20px;">{{titulo_pagina}}</h3>	 
+		</div>
+	</div>
+	<!-- Boton Hamburguesa -->
+	
+    <!-- Menu Lateral -->
+	{% include 'menu_lateral.html' %}
+    <!-- Menu Lateral -->
+
+	<div class="mobile-menu-overlay"></div>
+
+    <!-- Contenido de la pagina -->
+	<div class="main-container">
+		<div class="pd-ltr-20">	 
+	 
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 mb-30">
+ 					<div class="card-box mb-30">
+						{% block boton_nuevo %}
+
+						{% endblock  %}
+
+						<div class="pd-20">
+							<h4 class="text-blue h4">{{ titulo_tabla }}</h4>
+							{% block formulario %}
+							{% endblock  %}
+						</div>
+
+                        {% block content %}
+                        {% endblock %}
+                        
+					</div>
+				</div>
+			</div> 
+		</div>
+	</div>
+    <!-- Contenido de la pagina -->
+	
+	<!-- js -->
+	<script src="{% static 'js/core.js' %}"></script>
+	<script src="{% static 'js/script.min.js' %}"></script>
+
+	<script src="{% static 'js/datatable/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static 'js/datatable/js/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'js/datatable/js/dataTables.responsive.min.js' %}"></script>
+	<script src="{% static 'js/datatable/js/responsive.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'js/jquery-confirm-v3.3.4/jquery-confirm.min.js' %}"></script>
+	<script src="{% static 'js/functions.js' %}"></script>
+
+	
+	{% block code_js %}
+ 
+	{% endblock code_js %}
+</body>
+</html>
+ 

@@ -1,0 +1,16 @@
+{% extends 'home.html' %}
+{% load widget_tweaks %}
+
+{% block formulario %}
+ 	<form method="post" action=".">
+    {% csrf_token %}
+        <input type="hidden" name="action" value="{{action}}">
+        <div id="error_message" class="alert alert-danger" role="alert" >
+             ¿Esta seguro de eliminar el registro Nro. {{object.id}}?
+  	    </div>
+    
+        <button type="submit" class="btn btn-primary">Si, confirmar</button>			
+        <a href="{{list_url_clientes}}" class="btn btn-secondary">Cancelar</a>							
+    </form>	
+{% endblock %}
+ 
